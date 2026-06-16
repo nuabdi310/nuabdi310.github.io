@@ -5,80 +5,231 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   background: #f5f5f5;
-  color: #333;
-  line-height: 1.6;
+  color: #000;
+  overflow-x: hidden;
 }
 
-.container {
-  max-width: 900px;
-  margin: 40px auto;
-  background: #fff;
-  padding: 40px;
-  border-radius: 10px;
-  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+/* Blur Background */
+
+.blur {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: -1;
 }
 
-header {
-  text-align: center;
-  margin-bottom: 30px;
+.blur-left {
+  width: 450px;
+  height: 450px;
+  background: #a6ffe2;
+  left: -120px;
+  top: 20px;
 }
 
-h1 {
-  font-size: 36px;
+.blur-right {
+  width: 450px;
+  height: 450px;
+  background: #c8ff00;
+  right: -100px;
+  top: 100px;
 }
 
-.job-title {
-  color: #0d6efd;
-  font-weight: bold;
-  margin: 10px 0;
-}
+/* Navbar */
 
-.contact p {
-  margin: 5px 0;
-}
-
-section {
-  margin-bottom: 30px;
-}
-
-h2 {
-  border-bottom: 2px solid #0d6efd;
-  padding-bottom: 8px;
-  margin-bottom: 15px;
-}
-
-.skills {
+.navbar {
+  max-width: 1200px;
+  margin: auto;
+  padding: 30px 20px;
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.skills span {
-  background: #0d6efd;
-  color: #fff;
-  padding: 8px 12px;
-  border-radius: 20px;
+.logo {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.navbar ul {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #000;
+}
+
+.btn-outline {
+  padding: 14px 28px;
+  border: 1px solid #000;
+  border-radius: 40px;
+  background: none;
+  cursor: pointer;
+}
+
+/* Hero */
+
+.hero {
+  max-width: 1200px;
+  margin: auto;
+  padding: 50px 20px 120px;
+  display: flex;
+  gap: 80px;
+}
+
+.social {
+  width: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.social a {
+  text-decoration: none;
+  color: #000;
+  font-size: 22px;
+}
+
+.social span {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
   font-size: 14px;
 }
 
-.item {
+.hero-content {
+  flex: 1;
+}
+
+.hero-content h1 {
+  font-size: 90px;
+  font-weight: 700;
+  line-height: 1.05;
+  margin-bottom: 40px;
+}
+
+.hero-content h1 span {
+  background: #000;
+  color: #fff;
+  padding: 0 20px;
+  border-radius: 8px;
+}
+
+.hero-content p {
+  width: 600px;
+  font-size: 22px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.btn-call {
+  padding: 18px 35px;
+  border-radius: 50px;
+  border: 1px solid #000;
+  background: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* Skills */
+
+.skills {
+  max-width: 1300px;
+  margin: auto;
+  background: #050505;
+  color: white;
+  border-radius: 40px;
+  padding: 50px;
+}
+
+.badge {
+  display: inline-block;
+  border: 1px solid white;
+  border-radius: 20px;
+  padding: 8px 20px;
+  margin-bottom: 25px;
+}
+
+.skills-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 60px;
+}
+
+.skills-header h2 {
+  font-size: 64px;
+  line-height: 1.2;
+}
+
+.skill-text {
+  width: 350px;
+  color: #d7d7d7;
+  line-height: 1.8;
+}
+
+.cards {
+  display: flex;
+  gap: 30px;
+}
+
+.card {
+  flex: 1;
+  background: #111;
+  border-radius: 24px;
+  padding: 35px;
+  transition: 0.3s;
+}
+
+.card.active {
+  transform: rotate(-7deg);
+}
+
+.icon {
+  font-size: 60px;
+  margin-bottom: 20px;
+  color: #c8ff00;
+}
+
+.card h3 {
+  font-size: 30px;
   margin-bottom: 20px;
 }
 
-.date {
-  color: #777;
-  margin-bottom: 10px;
+.card p {
+  color: #bcbcbc;
+  line-height: 1.7;
 }
 
-ul {
-  padding-left: 20px;
-}
+/* Responsive */
 
-footer {
-  text-align: center;
-  border-top: 1px solid #ddd;
-  padding-top: 20px;
-  color: #777;
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+  }
+
+  .hero-content h1 {
+    font-size: 55px;
+  }
+
+  .hero-content p {
+    width: 100%;
+    font-size: 18px;
+  }
+
+  .skills-header {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .cards {
+    flex-direction: column;
+  }
+
+  .navbar ul {
+    display: none;
+  }
 }
